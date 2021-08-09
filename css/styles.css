@@ -1,0 +1,53 @@
+.spaceBG {
+  overflow: hidden;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.sliding-background {
+  height: auto;
+  width: 100%;
+  background: turquoise url(../css/img/progressBarBackground02.jpg) repeat-x top
+    left;
+}
+
+@keyframes displace {
+  from {
+    background-position: 0 top;
+  }
+  to {
+    background-position: 590px top;
+  }
+}
+
+#rocketIcon {
+  animation: updown 2s ease infinite;
+}
+
+@keyframes flying {
+  0% {
+    background-position: center 200%;
+  }
+  50% {
+    background-position: center 150%;
+  }
+  100% {
+    background-position: center 200%;
+  }
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-5%);
+  }
+
+  50% {
+    transform: translateY(10%);
+  }
+
+  100% {
+    transform: translateY(-5%);
+  }
+}

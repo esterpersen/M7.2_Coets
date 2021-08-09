@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap 5 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+	<!-- Models -->
+	<script src="../models/rocket.js"></script>
+	<script src="../models/propeller.js"></script>
+
+	<!-- Icones -->
+	<link rel="stylesheet" href="../css/css/all.min.css">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="../css/styles.css">
+
+	<title>M72_TS Coets</title>
+</head>
+
+<body>
+	<div class="container-fluid text-center p-3 text-light" style="background-color:rgb(14, 14, 80);">
+		<!-- APPLICATION -->
+		<div id="App" class="row">
+
+			<div class="row">
+				<div class="col">
+					<h1 class="display-4 pb-3">
+						<i class="fas fas fa-rocket" style="font-size: 2.5rem;"></i>
+						Rocket Workshop
+						<i class="fas fas fa-rocket" style="font-size: 2.5rem;"></i>
+					</h1>
+
+				</div>
+			</div>
+
+			<div class="row px-5">
+				<div class="col">
+					<h3>
+						Welcome to the rocket workshop!
+					</h3>
+					<p style="font-size: 1.4rem;">
+						Create a rocket with an 8-digit code (letters & numbers only), and up to 10 propellers with a
+						maximum power each (from 10 to 100).
+						Test its potential in space by accelerating and breaking, and print its information with the
+						buttons.
+					</p>
+					<h4 class="pb-3"> Create as many as you want!
+					</h4>
+				</div>
+			</div>
+
+			<div class="row gx-5">
+
+				<!-- ROCKET APP -->
+				<div class="col-md-3" id="formulariEntrarRocket">
+
+					<div class="row">
+
+						<div class="card bg-dark mb-3 p-1">
+							<div class="card-header">
+								<h4>Create your Rocket</h4>
+							</div>
+							<!-- ROCKET FORM -->
+							<form id="createARocketForm" class="card-body" style="display:block">
+								<!-- CODE -->
+								<div class="form-group mb-3" id="rocketCodeArea" style="display:block">
+									<label for="rocketCode">Insert the rocket's 8-character code</label>
+									<input type="text" id="rocketCode" autofocus placeholder="CODE1234"
+										class="form-control">
+									<div class="invalid-feedback" id="errorRocketCode"></div>
+									<div class="valid-feedback" id="okRocketCode"></div>
+								</div>
+								<!-- HOW MANY PROPELLERS -->
+								<div class="form-group mb-3" style="display:block" id="propellersQuestion">
+									<label for="rocketNumPropellers">How many propellers does it have?</label>
+									<select class="form-control" id="rocketNumPropellers" form="createARocketForm">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select>
+									<div class="invalid-feedback" id="errorNumberPropellers"></div>
+									<div class="valid-feedback" id="okNumberPropellers"></div>
+								</div>
+
+								<!-- BOTÓ CREATE ROCKET -->
+								<div class="d-grid gap-2 col-12 mx-auto">
+									<button type="button" id="createRocketButton" class="btn btn-outline-light"
+										style="display:block" onclick="createRocket()" role="button">Create a new rocket
+									</button>
+								</div>
+							</form>
+							<!-- PROPELLERS FORM -->
+							<form id="createPropellersForm" class="card-body" style="display:none">
+								<!-- AQUI APARAIXERA CADA INPUT DE MAX POWER PER CADA PROPELLER QUE L'USUARI VULGUI AFEGIR -->
+								<div id="propellerMaxPower" class="form-group mb-3"></div>
+
+								<!-- BOTÓ ADD PROPELLERS -->
+								<div class="d-grid gap-2 col-12 mx-auto">
+									<button type="button" id="addPropellersButton" class="btn btn-outline-light"
+										role="button" onclick="addPropellers()">Add propellers
+									</button>
+								</div>
+							</form>
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col">
+
+							<div class="btn-group mb-3" role="group">
+								<!-- BOTONS DE PRINT ALL I CLEAR AREA -->
+								<button type="button" class="btn btn-outline-info" id="printAllRocketsButton"
+									role="button" onclick="printAllRockets()">
+									Print All Rockets
+								</button>
+								<button type="button" class="btn btn-outline-primary" id="deleteAllInfoShown"
+									role="button" onclick="clearShownData()">
+									Clear Info Area
+								</button>
+							</div>
+
+							<!-- INFO DE CADA ROCKET -->
+							<div id="rocketsInfo" class="col p-1">
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Aquí es mostraran els botons + l'icona de cada rocket -->
+				<div class="col-md-9" id="rocketButtonsAndRaceColumn">
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- BOOTSTRAP -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"></script>
+
+		<!-- Controller -->
+		<script src="../controller/controller.js"></script>
+</body>
+
+</html>
